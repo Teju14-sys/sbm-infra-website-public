@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Map | SBM Infra Projects</title>
+<meta name="description" content="Every SBM Infra Projects layout on one satellite map — locations, approvals and nearby corridors across Kalwakurthy and Kadthal, Telangana.">
+<link rel="canonical" href="https://sbm-infra-website.vercel.app/map.html">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<meta name="theme-color" content="#0A1F33">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SBM Infra Projects">
+<meta property="og:title" content="Project Map | SBM Infra Projects">
+<meta property="og:description" content="Every SBM Infra Projects layout on one satellite map — locations, approvals and nearby corridors across Kalwakurthy and Kadthal, Telangana.">
+<meta property="og:url" content="https://sbm-infra-website.vercel.app/map.html">
+<meta property="og:image" content="https://sbm-infra-website.vercel.app/assets/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..600;1,400..600&family=Archivo:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<link rel="stylesheet" href="assets/css/alt.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="alt-header">
+  <a class="brand" href="index.html"><img src="assets/images/logo.svg" alt="SBM Infra Projects"></a>
+  <div class="header-actions">
+    <a class="nav-cta" href="contact.html">Enquire</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="alt-nav">&#9776;</button>
+  </div>
+  <nav class="alt-nav" id="alt-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="news.html">News</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- ============ Page hero ============ -->
+  <section class="page-hero" aria-label="Project map">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">SBM Infra</a><span class="sep">/</span>
+        <a href="projects.html">Projects</a><span class="sep">/</span>
+        <span aria-current="page">Map</span>
+      </nav>
+      <span class="hero-eyebrow">Project Map</span>
+      <h1>Every layout, <em>on the ground.</em></h1>
+      <p class="lede">Tap a pin to see the project&rsquo;s approvals, key facts and the corridors around it &mdash; then get directions straight to the site.</p>
+    </div>
+  </section>
+
+  <!-- ============ Map ============ -->
+  <section class="section" aria-label="Map of all projects">
+    <div class="wrap">
+      <div class="map-chips" id="map-chips" aria-label="Jump to a project"></div>
+      <div class="all-map" id="all-map" role="region" aria-label="Interactive map of all SBM projects"></div>
+      <noscript><p class="map-note">The interactive map needs JavaScript. You can still browse every layout on the <a href="projects.html">Projects page</a>.</p></noscript>
+      <p class="map-note">Pins mark the approximate project location. Use Get Directions on a project&rsquo;s card for navigation to the site.</p>
+    </div>
+  </section>
+
+  <!-- ============ Enquiry CTA ============ -->
+  <section class="cta-band" aria-label="Enquire">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Walk the land before you buy.</h2>
+        <p>Talk to our team for current availability, a site visit, or an accurate quote. Spot registration available.</p>
+      </div>
+      <div class="cta-actions reveal">
+        <div class="btn-row">
+          <a class="btn btn-solid" href="contact.html">Enquire Now</a>
+          <a class="btn btn-ghost" href="projects.html">All Projects</a>
+        </div>
+        <span class="app-note">Pricing on request &middot; site visits arranged &middot; 100% clear title</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="alt-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="assets/images/logo.svg" alt="">
+        <p>SBM Infra India Pvt. Ltd. — DTCP &amp; RERA approved residential open plots across Telangana.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="projects.html">Our Projects</a></p>
+        <p><a href="news.html">News</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Head Office</h4>
+        <p>TNGOs Colony, H.No. 1-1/2/c6, Near LIC Office, Kalwakurthy, Nagarkurnool Dist., Telangana &ndash; 509324</p>
+        <p><a href="mailto:info@sbminfraprojects.in">info@sbminfraprojects.in</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 SBM Infra India Pvt. Ltd. All Rights Reserved. This site is a conceptual presentation, not a legal offering. Specifications subject to change.
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/alt.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script>
+/* Reads data/projects.json, so a project added through /admin appears here
+   as soon as it has coords. Card text comes from that same trusted data. */
+(function () {
+  var mapEl = document.getElementById('all-map');
+  var chipsEl = document.getElementById('map-chips');
+  if (!mapEl || !window.L) return;
+
+  var LANDMARK_KEYS = ['Corridor', 'Corridors', 'Nearby', 'Adjacent', 'Between', 'Near', 'Frontage'];
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  }
+
+  function cardHtml(p, total) {
+    var facts = (p.facts || []).map(function (f) { return '<li>' + f + '</li>'; }).join('');
+    var marks = (p.specs || []).filter(function (s) { return LANDMARK_KEYS.indexOf(s.k) !== -1; })
+      .map(function (s) { return '<dt>' + s.k + '</dt><dd>' + s.v + '</dd>'; }).join('');
+    var ll = p.coords.lat + ',' + p.coords.lng;
+    return '<div class="map-card">' +
+      '<span class="map-card-idx">' + esc(p.index) + ' / ' + esc(total) + '</span>' +
+      '<h3>' + p.name + '</h3>' +
+      '<p class="map-card-loc">' + p.location + '</p>' +
+      (p.lp_badge ? '<span class="map-card-badge">&#10003; ' + p.lp_badge + '</span>' : '') +
+      (facts ? '<ul class="map-card-facts">' + facts + '</ul>' : '') +
+      (marks ? '<dl class="map-card-marks">' + marks + '</dl>' : '') +
+      '<div class="map-card-actions">' +
+        '<a class="btn btn-solid" href="projects/' + esc(p.slug) + '.html">View Project</a>' +
+        '<a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=' + ll + '" target="_blank" rel="noopener">Get Directions</a>' +
+      '</div></div>';
+  }
+
+  fetch('data/projects.json').then(function (r) { return r.json(); }).then(function (all) {
+    var total = String(all.length).padStart(2, '0');
+    var pinned = [];
+    all.forEach(function (p, i) {
+      if (p.coords) { p.index = String(i + 1).padStart(2, '0'); pinned.push(p); }
+    });
+    if (!pinned.length) { mapEl.hidden = true; return; }
+
+    var map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true });
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19, maxNativeZoom: 17,
+      attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics'
+    }).addTo(map);
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19, maxNativeZoom: 17
+    }).addTo(map);
+
+    var markers = pinned.map(function (p) {
+      var icon = L.divIcon({
+        className: 'map-pin-wrap',
+        html: '<span class="map-pin"><b>' + p.index + '</b></span>',
+        iconSize: [34, 42], iconAnchor: [17, 42], popupAnchor: [0, -38]
+      });
+      return L.marker([p.coords.lat, p.coords.lng], { icon: icon, title: p.name, alt: p.name })
+        .bindPopup(cardHtml(p, total), { maxWidth: 300, minWidth: 240 });
+    });
+
+    // Several projects sit within ~1 km, so their pins would stack and become
+    // untappable. A cluster group collapses the overlap into one count badge
+    // that splits apart on zoom/tap. Falls back to plain markers if the
+    // clustering plugin fails to load.
+    var group;
+    if (L.markerClusterGroup) {
+      group = L.markerClusterGroup({
+        maxClusterRadius: 45,
+        showCoverageOnHover: false,
+        spiderfyOnMaxZoom: false,
+        disableClusteringAtZoom: 16,
+        iconCreateFunction: function (cluster) {
+          return L.divIcon({
+            className: 'map-cluster-wrap',
+            html: '<span class="map-cluster">' + cluster.getChildCount() + '</span>',
+            iconSize: [40, 40]
+          });
+        }
+      });
+      markers.forEach(function (m) { group.addLayer(m); });
+      map.addLayer(group);
+    } else {
+      markers.forEach(function (m) { m.addTo(map); });
+    }
+
+    // Zoom 16 is at/above disableClusteringAtZoom, so the target marker is
+    // always an individual pin there (never buried in a cluster). reveal()
+    // is guarded so it runs once, and a timeout fallback still fires it if
+    // the fly animation is throttled (e.g. a backgrounded tab).
+    function focusMarker(m) {
+      var done = false;
+      function reveal() {
+        if (done) return;
+        done = true;
+        if (!m._icon) map.setView(m.getLatLng(), 16, { animate: false });
+        m.openPopup();
+      }
+      map.flyTo(m.getLatLng(), 16, { duration: 0.8 });
+      map.once('moveend', function () { setTimeout(reveal, 250); });
+      setTimeout(reveal, 1600);
+    }
+
+    var bounds = L.latLngBounds(pinned.map(function (p) { return [p.coords.lat, p.coords.lng]; }));
+    map.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
+
+    var chipEls = [];
+    pinned.forEach(function (p, k) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'map-chip';
+      b.textContent = p.name;
+      b.addEventListener('click', function () {
+        chipEls.forEach(function (el) { el.classList.remove('is-active'); });
+        b.classList.add('is-active');
+        focusMarker(markers[k]);
+        mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+      chipEls.push(b);
+      chipsEl.appendChild(b);
+    });
+
+    /* Wheel-zoom stays off until the map is clicked, so scrolling the page
+       past it never gets hijacked. */
+    map.on('focus', function () { map.scrollWheelZoom.enable(); });
+    map.on('blur', function () { map.scrollWheelZoom.disable(); });
+  }).catch(function () {
+    mapEl.hidden = true;
+    chipsEl.innerHTML = '<a class="btn btn-outline" href="projects.html">Browse all projects</a>';
+  });
+})();
+</script>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

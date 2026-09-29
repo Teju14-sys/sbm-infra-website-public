@@ -1,0 +1,928 @@
+/* Internal admin tool. It borrows the public site's palette and type
+   (assets/css/alt.css) so it reads as the same product, but stays calmer:
+   colour carries structure here, it does not decorate. */
+
+:root {
+  --admin-primary: #0054A3;
+  --admin-accent: #E84C09;
+  --admin-ink: #0A1F33;
+  --admin-ink-deep: #061421;
+  --admin-text: #0A1F33;
+  --admin-muted: #6B6B68;
+  --admin-bg: #FAF7F2;
+  --admin-bg-deep: #F1EADE;
+  --admin-paper: #FFFFFF;
+  --admin-border: #E4DED2;
+  --admin-danger: #B3261E;
+
+  --admin-display: "Fraunces", Georgia, serif;
+  --admin-body: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+
+  --admin-radius: 12px;
+  --admin-shadow: 0 1px 2px rgba(10, 31, 51, 0.04), 0 14px 32px -20px rgba(10, 31, 51, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+body.admin {
+  margin: 0;
+  font-family: var(--admin-body);
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A full-bleed band anchors the tool and gives the cream page something to
+   sit against - the one place deep colour is used at scale. */
+.admin-topbar {
+  background: var(--admin-ink);
+  border-bottom: 3px solid var(--admin-accent);
+}
+
+.admin-topbar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.admin-brand-mark {
+  font-family: var(--admin-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+
+.admin-brand-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+  white-space: nowrap;
+}
+
+.admin-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 4rem;
+}
+
+.admin-logout-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.admin-logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Login page */
+.admin-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background:
+    radial-gradient(1100px 520px at 50% -10%, #FFFFFF 0%, var(--admin-bg) 52%, var(--admin-bg-deep) 100%);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  margin: 0;
+  padding: 2.25rem 2rem;
+  background: var(--admin-paper);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow);
+  border-top: 3px solid var(--admin-accent);
+}
+
+.login-brand {
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-brand .admin-brand-mark { color: var(--admin-ink); }
+.login-brand .admin-brand-sub { color: var(--admin-muted); }
+
+.login-card h1 {
+  font-family: var(--admin-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 0 1.25rem;
+}
+
+.login-forgot {
+  text-align: center;
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+}
+
+.login-forgot a {
+  color: var(--admin-primary);
+}
+
+#forgot-block {
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--admin-border);
+  padding-top: 0.9rem;
+}
+
+.login-forgot-hint {
+  font-size: 0.8rem;
+  color: #6b675e;
+  margin: 0 0 0.6rem;
+}
+
+.admin-field {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.admin-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--admin-primary);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.admin-btn:disabled { opacity: 0.6; cursor: default; }
+
+.admin-error {
+  color: var(--admin-danger);
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+  min-height: 1.2em;
+}
+
+/* Project cards (dashboard) */
+.admin-project {
+  background: var(--admin-paper);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow);
+  padding: 1.35rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-project h2 {
+  font-family: var(--admin-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.9rem;
+}
+
+.admin-video-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.admin-video-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem 0.4rem 0.4rem;
+  max-width: 260px;
+}
+
+.admin-video-item img {
+  width: 64px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.admin-video-item .label {
+  font-size: 0.85rem;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-video-item .delete-btn {
+  background: none;
+  border: none;
+  color: var(--admin-danger);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.2rem;
+}
+
+.admin-add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.admin-add-form input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.admin-add-form select {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  background: var(--admin-paper);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.admin-add-form button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--admin-accent);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.admin-status {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  min-height: 1.2em;
+}
+
+/* Reserve the line only when there is something to say, otherwise every
+   silent field carries a phantom gap. */
+.admin-status:empty {
+  min-height: 0;
+  margin-top: 0;
+}
+
+.admin-status.ok { color: #1a7f37; }
+.admin-status.err { color: var(--admin-danger); }
+
+/* Create Project panel */
+.admin-section-title {
+  font-family: var(--admin-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 2.5rem 0 1rem;
+}
+
+.admin-create-panel {
+  background: var(--admin-paper);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-create-panel summary {
+  cursor: pointer;
+  font-family: var(--admin-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--admin-ink);
+  list-style-position: outside;
+}
+
+.admin-create-panel summary::marker { color: var(--admin-accent); }
+
+.admin-create-panel[open] summary {
+  margin-bottom: 1.25rem;
+}
+
+.admin-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+/* Sections mark the four real stages of building a project, so the form
+   reads as steps rather than one 16-field wall. */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-head {
+  border-bottom: 1px solid var(--admin-border);
+  padding-bottom: 0.6rem;
+}
+
+/* A short accent rule marks each stage without colouring the whole head. */
+.section-head h3 {
+  font-family: var(--admin-display);
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin: 0;
+  padding-top: 0.5rem;
+  position: relative;
+}
+
+.section-head h3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 2px;
+  background: var(--admin-accent);
+}
+
+.section-head p {
+  font-size: 0.82rem;
+  color: var(--admin-muted);
+  margin: 0.25rem 0 0;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field-hint {
+  display: block;
+  font-size: 0.78rem;
+  color: #6b675e;
+  margin-top: 0.3rem;
+}
+
+/* Hints that sit above their control need the gap on the other side. */
+.dyn-list + .dyn-add-btn,
+label + .field-hint {
+  margin-top: 0.15rem;
+}
+
+.field-row label .opt {
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: #8a8578;
+  margin-left: 0.3rem;
+}
+
+/* Tinted toward the primary so the optional shortcut reads as a helper
+   zone rather than another required field. */
+.admin-extract-block {
+  background: rgba(0, 84, 163, 0.04);
+  border: 1px dashed rgba(0, 84, 163, 0.28);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+}
+
+.admin-extract-block label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.admin-extract-block input[type="file"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  background: var(--admin-paper);
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+/* The native "Choose File" control is the one thing that still reads as a
+   raw browser widget, so give it the same finish as the real buttons. */
+input[type="file"]::file-selector-button {
+  margin-right: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  background: var(--admin-bg);
+  color: var(--admin-ink);
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--admin-bg-deep);
+  border-color: var(--admin-primary);
+}
+
+/* Reading a brochure is optional help, so it must not outrank
+   "Create project" - the one action the whole form exists for. */
+.admin-btn-secondary {
+  width: auto;
+  background: #fff;
+  color: var(--admin-primary);
+  border: 1px solid var(--admin-primary);
+  font-size: 0.9rem;
+  padding: 0.5rem 1.1rem;
+}
+
+.admin-btn-secondary:hover { background: var(--admin-bg); }
+
+/* Each image field carries a preview of what is currently chosen, so a
+   wrong page is obvious here instead of after the project is created. */
+.image-picker {
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  gap: 1.1rem;
+  align-items: start;
+  padding: 1.1rem;
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+}
+
+.image-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
+  background: var(--admin-paper);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-preview span {
+  font-size: 0.75rem;
+  color: var(--admin-muted);
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image-picker-controls > label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.image-picker-controls .sub-label {
+  margin-top: 0.6rem;
+  font-weight: 400;
+  color: #6b675e;
+  font-size: 0.78rem;
+}
+
+.image-picker-controls input[type="file"],
+.image-picker-controls select {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.image-picker-controls .page-select { margin: 0.5rem 0 0.4rem; }
+
+/* Brochure page picker */
+.page-picker-hint {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--admin-muted);
+  margin: 0 0 0.6rem;
+}
+
+.page-picker-strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.page-thumb {
+  flex: 0 0 auto;
+  width: 172px;
+  background: var(--admin-paper);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  padding: 0.4rem;
+  text-align: center;
+}
+
+.page-thumb img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background: var(--admin-paper);
+  border-radius: 4px;
+}
+
+.page-thumb-num {
+  display: block;
+  font-size: 0.72rem;
+  color: #6b675e;
+  margin: 0.35rem 0 0.1rem;
+}
+
+.page-select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  margin-bottom: 0.4rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.9rem;
+}
+
+.page-select:disabled { opacity: 0.55; }
+
+.field-row input.auto-filled,
+.field-row textarea.auto-filled,
+.dyn-row.auto-filled input {
+  background: #FCEFE2;
+  border-color: var(--admin-accent);
+}
+
+.review-note {
+  display: block;
+  color: var(--admin-danger);
+  font-size: 0.78rem;
+  font-weight: 400;
+  margin: -0.15rem 0 0.35rem;
+}
+
+.field-row label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.field-row input[type="text"],
+.field-row textarea,
+.field-row select,
+.field-row input[type="file"] {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.field-row textarea {
+  resize: vertical;
+}
+
+.field-row-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 400;
+}
+
+.dyn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.dyn-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.dyn-row input {
+  flex: 1;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.dyn-list-kv .dyn-row .dyn-key {
+  flex: 0 0 40%;
+}
+
+.dyn-remove-btn {
+  background: none;
+  border: none;
+  color: var(--admin-danger);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.2rem 0.4rem;
+  flex-shrink: 0;
+}
+
+.dyn-add-btn {
+  align-self: flex-start;
+  background: none;
+  border: 1px dashed var(--admin-border);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--admin-primary);
+}
+
+#cp-submit {
+  align-self: flex-start;
+  width: auto;
+  padding: 0.7rem 1.75rem;
+  background: var(--admin-accent);
+  font-weight: 600;
+}
+
+.admin-followup-note {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.admin-followup-block {
+  border-top: 1px solid var(--admin-border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.admin-followup-block h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.6rem;
+}
+
+.admin-followup-block input[type="text"],
+.admin-followup-block input[type="file"] {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.admin-followup-block .admin-btn {
+  width: auto;
+  padding: 0.5rem 1.25rem;
+}
+
+/* Shared control finish, applied once rather than per-context. */
+.admin-field,
+.field-row input[type="text"],
+.field-row textarea,
+.field-row select,
+.field-row input[type="file"],
+.image-picker-controls input[type="file"],
+.image-picker-controls select,
+.dyn-row input,
+.admin-add-form input[type="text"] {
+  background: var(--admin-paper);
+  color: inherit;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.admin-field:focus,
+.field-row input[type="text"]:focus,
+.field-row textarea:focus,
+.field-row select:focus,
+.image-picker-controls select:focus,
+.dyn-row input:focus,
+.admin-add-form input[type="text"]:focus {
+  outline: none;
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(0, 84, 163, 0.14);
+}
+
+.admin-btn {
+  font-family: inherit;
+  transition: filter 0.15s ease, background 0.15s ease;
+}
+
+.admin-btn:not(:disabled):hover { filter: brightness(1.07); }
+
+/* Edit-existing-project dashboard */
+.admin-project-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.admin-project-head h2 { margin: 0; }
+
+.admin-project-toggle {
+  flex: 0 0 auto;
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+  color: var(--admin-ink);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.admin-project-toggle:hover { background: var(--admin-bg-deep); border-color: var(--admin-primary); }
+
+.admin-project-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--admin-border);
+}
+
+/* A class selector's display:flex above outranks the UA stylesheet's
+   [hidden]{display:none} on specificity, so collapsed cards would
+   otherwise render fully expanded regardless of the hidden attribute. */
+.admin-project-body[hidden] {
+  display: none;
+}
+
+.admin-edit-section h3 {
+  font-family: var(--admin-display);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.9rem;
+}
+
+.admin-edit-section > .field-row,
+.admin-edit-section > .field-grid,
+.admin-edit-section > .image-picker {
+  margin-bottom: 0.9rem;
+}
+
+.admin-hero-range { display: flex; gap: 0.6rem; }
+.admin-hero-range input { flex: 1; }
+
+.admin-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.admin-gallery-item {
+  position: relative;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--admin-bg);
+}
+
+.admin-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.admin-gallery-item .cap {
+  display: block;
+  font-size: 0.72rem;
+  padding: 0.4rem 0.5rem;
+  color: var(--admin-muted);
+}
+
+.admin-gallery-item .gallery-delete-btn {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(6, 20, 33, 0.72);
+  color: #fff;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.admin-gallery-add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.admin-gallery-add input[type="text"] {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.admin-trash-block {
+  border-top: 1px solid var(--admin-border);
+  padding-top: 1rem;
+}
+
+.admin-trash-block summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--admin-muted);
+}
+
+.admin-trash-block .admin-video-list { margin-top: 0.9rem; }
+
+.restore-btn {
+  background: none;
+  border: 1px solid var(--admin-primary);
+  color: var(--admin-primary);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.restore-btn:hover { background: var(--admin-bg); }
+
+/* Quality floor */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--admin-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .admin-shell { padding: 1.5rem 1rem 3rem; }
+  .admin-topbar-inner { padding: 0.9rem 1rem; }
+  .admin-brand-sub { display: none; }
+  .admin-create-panel { padding: 1.1rem; }
+
+  .field-grid { grid-template-columns: 1fr; }
+
+  .image-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .image-preview { height: 150px; }
+
+  .dyn-list-kv .dyn-row { flex-wrap: wrap; }
+  .dyn-list-kv .dyn-row .dyn-key { flex: 1 1 100%; }
+
+  .admin-btn-secondary { width: 100%; }
+
+  .admin-project-head { flex-wrap: wrap; }
+  .admin-gallery-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+  .admin-gallery-add input[type="text"] { min-width: 0; width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

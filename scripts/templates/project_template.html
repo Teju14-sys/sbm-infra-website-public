@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{name}} | SBM Infra Projects</title>
+<meta name="description" content="{{name}} &mdash; {{tagline}}. {{location}}. DTCP &amp; RERA approved residential open plots by SBM Infra Projects.">
+<link rel="canonical" href="https://sbm-infra-website.vercel.app/projects/{{slug}}.html">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
+<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+<meta name="theme-color" content="#0A1F33">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SBM Infra Projects">
+<meta property="og:title" content="{{name}} | SBM Infra Projects">
+<meta property="og:description" content="{{name}} &mdash; {{tagline}}. {{location}}. DTCP &amp; RERA approved residential open plots by SBM Infra Projects.">
+<meta property="og:url" content="https://sbm-infra-website.vercel.app/projects/{{slug}}.html">
+<meta property="og:image" content="https://sbm-infra-website.vercel.app/assets/images/derived/{{slug}}/card.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400..600;1,400..600&family=Archivo:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/alt.css">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="alt-header">
+  <a class="brand" href="../index.html"><img src="../assets/images/logo.svg" alt="SBM Infra Projects"></a>
+  <div class="header-actions">
+    <a class="nav-cta" href="../contact.html">Enquire</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="alt-nav">&#9776;</button>
+  </div>
+  <nav class="alt-nav" id="alt-nav">
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../projects.html" aria-current="page">Projects</a></li>
+      <li><a href="../news.html">News</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- ============ Project hero ============ -->
+  <section class="page-hero" aria-label="{{name}} overview">
+{{hero_ghost}}
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="../index.html">SBM Infra</a><span class="sep">/</span>
+        <a href="../projects.html">Projects</a><span class="sep">/</span>
+        <span aria-current="page">{{name}}</span>
+      </nav>
+      <div class="proj-hero-grid">
+        <div>
+          {{status_chip}}
+          <h1>{{name}}</h1>
+          <p class="proj-tagline">&ldquo;{{tagline}}&rdquo;</p>
+          <p class="proj-loc">{{location}}</p>
+          <div class="btn-row">
+            <a class="btn btn-solid" href="../contact.html">Enquire Now</a>{{brochure_cta_hero}}
+          </div>
+        </div>
+        <aside class="brand-plate" aria-label="Project identity and approvals">
+          <span class="plate-label">Survey Record &middot; {{index}} / {{total}}</span>
+          <div class="sub-logo"><img src="../assets/images/projects/{{slug}}/img-0-logo.jpeg" alt="{{name}} project logo"></div>
+{{approvals}}
+        </aside>
+      </div>
+      <div class="hero-ledger" aria-label="Key facts">
+{{ledger_items}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Survey record: the facts, as filed ============ -->
+  <section class="section" aria-label="Project specifications">
+    <div class="wrap">
+      <div class="section-head split reveal">
+        <div>
+          <span class="eyebrow">Survey Record</span>
+          <h2>The facts, as filed.</h2>
+        </div>
+        <span class="section-note">SOURCE: PROJECT BROCHURE &amp; DTCP / RERA FILINGS</span>
+      </div>
+      <div class="spec-plate reveal">
+        <span class="corner" aria-hidden="true"></span>
+        <dl class="spec-grid">
+{{spec_items}}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ About + amenities ============ -->
+  <section class="section section-paper" aria-label="About this layout">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Developed Before You Buy</span>
+        <h2>Everything in place, from day one.</h2>
+      </div>
+      <p class="reveal" style="max-width:70ch;color:var(--muted);margin-bottom:2.75rem;">{{about}}</p>
+      <ul class="amenity-grid stagger" style="list-style:none;">
+{{amenity_items}}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ Master layout plan ============ -->
+  <section class="section" aria-label="Master layout plan">
+    <div class="wrap">
+      <div class="section-head split reveal">
+        <div>
+          <span class="eyebrow">Master Layout</span>
+          <h2>Walk the plan.</h2>
+        </div>
+        <span class="section-note">AS FILED &middot; TAP TO ENLARGE</span>
+      </div>
+      <a class="plan-frame reveal" href="../assets/images/projects/{{slug}}/{{plan_src}}" data-lightbox data-caption="{{name}} &mdash; {{plan_label}}">
+        <img src="../assets/images/derived/{{slug}}/plan.jpg" alt="{{name}} master layout plan" loading="lazy">
+        <span class="plan-bar"><span>{{plan_label}}</span><span class="zoom">Enlarge&ensp;+</span></span>
+      </a>{{brochure_cta_plan}}
+    </div>
+  </section>
+{{video_section}}{{docs_section}}{{location_section}}
+  <!-- ============ Enquiry CTA ============ -->
+  <section class="cta-band" aria-label="Enquire about {{name}}">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Walk the land before you buy.</h2>
+        <p>{{cta_note}}</p>
+      </div>
+      <div class="cta-actions reveal">
+        <div class="btn-row">
+          <a class="btn btn-solid" href="../contact.html">Enquire Now</a>
+          <a class="btn btn-ghost" href="../projects.html">All {{total_word}} Projects</a>
+        </div>
+        <span class="app-note">Pricing on request &middot; site visits arranged &middot; 100% clear title</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Prev / next project ============ -->
+  <nav class="proj-nav" aria-label="More projects">
+    <a href="{{prev_slug}}.html">
+      <span class="dir">&larr; Previous Record</span>
+      <span class="name">{{prev_name}}</span>
+    </a>
+    <a href="{{next_slug}}.html">
+      <span class="dir">Next Record &rarr;</span>
+      <span class="name">{{next_name}}</span>
+    </a>
+  </nav>
+</main>
+
+<footer class="alt-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="../assets/images/logo.svg" alt="">
+        <p>SBM Infra India Pvt. Ltd. — DTCP &amp; RERA approved residential open plots across Telangana.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <p><a href="../about.html">About Us</a></p>
+        <p><a href="../projects.html">Our Projects</a></p>
+        <p><a href="../news.html">News</a></p>
+        <p><a href="../contact.html">Contact</a></p>
+      </div>
+      <div>
+        <h4>Head Office</h4>
+        <p>TNGOs Colony, H.No. 1-1/2/c6, Near LIC Office, Kalwakurthy, Nagarkurnool Dist., Telangana &ndash; 509324</p>
+        <p><a href="mailto:info@sbminfraprojects.in">info@sbminfraprojects.in</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 SBM Infra India Pvt. Ltd. All Rights Reserved. This site is a conceptual presentation, not a legal offering. Specifications subject to change.
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/alt.js"></script>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

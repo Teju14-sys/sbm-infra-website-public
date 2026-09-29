@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get the SBM Infra App</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<meta name="theme-color" content="#0A1F33">
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Archivo', -apple-system, 'Segoe UI', sans-serif;
+    background: #FAF7F2;
+    color: #0A1F33;
+  }
+  .wrap {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    gap: 1rem;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  p { margin: 0; color: #55606b; }
+  .stores {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  a.store-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    background: #0054A3;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Taking you to the SBM Infra app&hellip;</h1>
+    <p>If you are not redirected automatically, choose your store below.</p>
+    <div class="stores">
+      <a class="store-link" id="ios-link" href="https://apps.apple.com/in/app/sbm-infra-india-pvt-ltd/id6738264342">App Store (iOS)</a>
+      <a class="store-link" id="android-link" href="https://play.google.com/store/apps/details?id=marami.task.sbminfraprojects">Play Store (Android)</a>
+    </div>
+  </div>
+
+  <script>
+    var IOS_URL = 'https://apps.apple.com/in/app/sbm-infra-india-pvt-ltd/id6738264342';
+    var ANDROID_URL = 'https://play.google.com/store/apps/details?id=marami.task.sbminfraprojects';
+
+    var androidReady = ANDROID_URL.indexOf('PASTE_') !== 0;
+    var androidLinkEl = document.getElementById('android-link');
+    if (androidReady) { androidLinkEl.href = ANDROID_URL; }
+
+    var ua = navigator.userAgent || '';
+    var isAndroid = /Android/i.test(ua);
+    var isiOS = /iPhone|iPad|iPod/i.test(ua);
+
+    var target = IOS_URL;
+    if (isAndroid && androidReady) { target = ANDROID_URL; }
+    else if (isiOS) { target = IOS_URL; }
+
+    window.location.replace(target);
+  </script>
+</body>
+</html>

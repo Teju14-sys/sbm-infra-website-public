@@ -1,0 +1,11 @@
+{
+  "name": "sbm-infra-website",
+  "private": true,
+  "type": "module",
+  "description": "SBM Infra Projects marketing site — static pages plus a small admin panel (Vercel serverless functions) for self-service content updates.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.126.0",
+    "@octokit/rest": "^21.0.2",
+    "sharp": "^0.35.4"
+  }
+}

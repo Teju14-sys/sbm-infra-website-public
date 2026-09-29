@@ -1,0 +1,907 @@
+[
+  {
+    "slug": "sharanam-valley",
+    "name": "Sharanam Valley",
+    "tagline": "Recapturing the serenity of lifestyle",
+    "location": "Jaya Prakash Nagar, Kalwakurthy",
+    "summary": "26.4 acres, 291 plots, plot sizes 160–745 sq.yds, 40% open space, 3.75 acres of parks, 33'–40' BT roads, 24x7 security, adjacent to Srisailam Highway (NH-765).",
+    "about": "Sharanam Valley is a fully developed, gated open-plot layout of 26.4 acres beside the Srisailam Highway (NH-765) at Jaya Prakash Nagar, Kalwakurthy. Its 291 plots range from 160 to 745 square yards, with a full 40% of the layout kept as open space — including 3.75 acres of designed parks — and 33'–40' BT roads running through the community under 24x7 security.",
+    "amenities": [
+      "Grand Entrance Arches",
+      "Avenue Plantation",
+      "Central Parks",
+      "Compound Wall",
+      "STP Provision",
+      "Children's Play Area",
+      "Designer Street Lighting",
+      "Underground Water &amp; Drainage",
+      "Overhead Tank",
+      "Underground Electricity (Premium)"
+    ],
+    "rera": "LP No. 379/2021/H",
+    "lp_badge": "LP 379/2021/H",
+    "card_alt": "Sharanam Valley master layout plan",
+    "card_tagline": "Recapturing the serenity of lifestyle",
+    "badges": [
+      "LP No. 379/2021/H"
+    ],
+    "facts": [
+      "26.4 AC &middot; 291 PLOTS",
+      "160&ndash;745 SQ. YD PLOTS &middot; 40% OPEN SPACE",
+      "ADJ. SRISAILAM HWY (NH-765)"
+    ],
+    "ledger": [
+      "26.4 ACRES",
+      "291 PLOTS",
+      "40% OPEN SPACE",
+      "33'&ndash;40' BT ROADS",
+      "LP 379/2021/H"
+    ],
+    "specs": [
+      {
+        "k": "Location",
+        "v": "Jaya Prakash Nagar, Kalwakurthy"
+      },
+      {
+        "k": "Product",
+        "v": "Residential open plots"
+      },
+      {
+        "k": "Extent",
+        "v": "26.4 acres &middot; 291 plots"
+      },
+      {
+        "k": "Plot sizes",
+        "v": "160&ndash;745 sq. yds"
+      },
+      {
+        "k": "Open space",
+        "v": "40% &middot; 3.75 ac parks"
+      },
+      {
+        "k": "Internal roads",
+        "v": "33'&ndash;40' BT roads"
+      },
+      {
+        "k": "Approval",
+        "v": "LP No. 379/2021/H"
+      },
+      {
+        "k": "Corridor",
+        "v": "Srisailam Highway (NH-765)"
+      },
+      {
+        "k": "Status",
+        "v": "Developed &middot; open plots available"
+      }
+    ],
+    "card": "img-3-3.jpeg",
+    "plan": {
+      "src": "img-3-3.jpeg",
+      "label": "Master layout plan &mdash; as filed"
+    },
+    "gallery": [
+      {
+        "src": "img-1-1.jpeg",
+        "cap": "Brochure spread &mdash; location plan"
+      },
+      {
+        "src": "img-2-2.jpeg",
+        "cap": "Project highlights &amp; amenities"
+      },
+      {
+        "src": "img-3-3.jpeg",
+        "cap": "Master layout plan"
+      }
+    ],
+    "videos": [
+      {
+        "youtube_id": "NczGIJzghUc",
+        "label": "Drone View",
+        "caption": "Sharanam Valley &mdash; drone view",
+        "category": "Drone Footage"
+      }
+    ],
+    "final_lp_approved": true,
+    "brochure": true,
+    "coords": {
+      "lat": 16.6604493,
+      "lng": 78.5409681
+    }
+  },
+  {
+    "slug": "green-meadows",
+    "name": "Green Meadows",
+    "tagline": "Live Life to the Fullest Every Moment Here",
+    "location": "Kalwakurthy Municipality",
+    "summary": "Residential open plots near NH-44 (Jadcherla) and NH-167 (Vijayawada), adjacent to Municipality Park and Gurukula Residential School.",
+    "about": "Green Meadows sits inside Kalwakurthy Municipality, adjacent to the Municipality Park and the Gurukula Residential School, with quick reach to NH-44 at Jadcherla and NH-167 towards Vijayawada. The layout is delivered in two approved phases (PASHE I &amp; II), with 60' to 30' BT roads, tiled pathways, drip-irrigated avenue plantation and a gated compound wall.",
+    "amenities": [
+      "60'/40'/33'/30' BT Roads",
+      "Sports &amp; Play Areas",
+      "Pathways with Tiles",
+      "Street Lights &amp; Transformer",
+      "Avenue Plantation with Drip System",
+      "Underground Drainage &amp; Septic Tank",
+      "Overhead Water Tank",
+      "Gated Compound Wall",
+      "Underground Electricity (Premium)"
+    ],
+    "rera": "PASHE-I LP No.0002/LO/3061/2023 &middot; PASHE-II LP No.0002/LO/3061/2024 &middot; TS RERA P01600008411 / P01600008453",
+    "lp_badge": "LP 0002/LO/3061",
+    "card_alt": "Green Meadows master layout plan",
+    "card_tagline": "Live life to the fullest every moment here",
+    "badges": [
+      "LP No. 0002/LO/3061",
+      "TS RERA P01600008411"
+    ],
+    "facts": [
+      "NEAR NH-44 &amp; NH-167",
+      "ADJ. MUNICIPALITY PARK &amp; GURUKULA SCHOOL",
+      "TWO APPROVED PHASES &middot; TS RERA P01600008411"
+    ],
+    "ledger": [
+      "PHASES I &amp; II",
+      "NEAR NH-44 &amp; NH-167",
+      "TS RERA P01600008411",
+      "TS RERA P01600008453"
+    ],
+    "specs": [
+      {
+        "k": "Location",
+        "v": "Kalwakurthy Municipality"
+      },
+      {
+        "k": "Product",
+        "v": "Residential open plots"
+      },
+      {
+        "k": "Phases",
+        "v": "PASHE I &amp; PASHE II"
+      },
+      {
+        "k": "Corridors",
+        "v": "NH-44 (Jadcherla) &middot; NH-167 (Vijayawada)"
+      },
+      {
+        "k": "Adjacent",
+        "v": "Municipality Park &middot; Gurukula School"
+      },
+      {
+        "k": "Internal roads",
+        "v": "60'/40'/33'/30' BT roads"
+      },
+      {
+        "k": "Approval",
+        "v": "LP No. 0002/LO/3061 /2023 &amp; /2024"
+      },
+      {
+        "k": "RERA",
+        "v": "TS RERA P01600008411 / P01600008453"
+      },
+      {
+        "k": "Status",
+        "v": "Developed &middot; open plots available"
+      }
+    ],
+    "card": "img-2-2.jpeg",
+    "plan": {
+      "src": "img-2-2.jpeg",
+      "label": "Master layout plan &mdash; Kalwakurthy town"
+    },
+    "gallery": [
+      {
+        "src": "img-1-1.jpeg",
+        "cap": "Brochure cover &mdash; residential open plots"
+      },
+      {
+        "src": "img-2-2.jpeg",
+        "cap": "Master layout plan"
+      },
+      {
+        "src": "img-3-3.jpeg",
+        "cap": "Amenities &amp; location plan"
+      }
+    ],
+    "videos": [
+      {
+        "youtube_id": "aGs9vkvE5XM",
+        "label": "Drone View",
+        "caption": "Green Meadows &mdash; drone view",
+        "category": "Drone Footage"
+      },
+      {
+        "youtube_id": "v-gCQqYl2yk",
+        "label": "Development",
+        "caption": "Green Meadows &mdash; development",
+        "category": "Development"
+      },
+      {
+        "youtube_id": "B8wYi6oj-qw",
+        "label": "Development",
+        "caption": "Green Meadows &mdash; development",
+        "category": "Development"
+      }
+    ],
+    "final_lp_approved": true,
+    "brochure": true,
+    "coords": {
+      "lat": 16.6591006,
+      "lng": 78.5125271
+    }
+  },
+  {
+    "slug": "capital-smart-city",
+    "name": "Capital Smart City",
+    "tagline": "Feel the Good Side of Life",
+    "location": "Kotra X Roads &amp; Kalwakurthy",
+    "summary": "A DTCP-approved 3-block layout (Blocks A, B, C) with a grand entrance arch, near the Regional Ring Road, NH167K, and NH765/167, five minutes from a 412-acre food processing unit.",
+    "about": "Capital Smart City is a DTCP-approved layout of three blocks (A, B and C) at Kotra X Roads near Kalwakurthy, announced by a grand entrance arch. It sits in reach of the Regional Ring Road, NH167K and NH765/167, and is roughly five minutes from a planned 412-acre food processing unit &mdash; a corridor where infrastructure is arriving ahead of speculation.",
+    "amenities": [
+      "Grand Entrance Arch",
+      "33' CC Roads",
+      "Sports &amp; Play Areas",
+      "Electrical Lines with Street Lights",
+      "Underground Drainage &amp; Septic Tank",
+      "Every-Plot Tap Connection",
+      "Well-Designed Parks/Gardens",
+      "Gated Compound Wall",
+      "Underground Electricity (Premium)"
+    ],
+    "rera": "D.T.L.P Nos. 62/2022, 65/2022, 68/2022 /DTCPO/NGKL (Blocks A/B/C)",
+    "lp_badge": "LP 62&middot;65&middot;68/2022",
+    "card_alt": "Capital Smart City entrance render",
+    "card_tagline": "Feel the good side of life",
+    "badges": [
+      "D.T.L.P 62 &middot; 65 &middot; 68 /2022"
+    ],
+    "facts": [
+      "BLOCKS A / B / C &middot; GRAND ENTRANCE ARCH",
+      "NEAR RRR &middot; NH167K &middot; NH765/167",
+      "412-AC FOOD PROCESSING UNIT 5 MIN"
+    ],
+    "ledger": [
+      "BLOCKS A / B / C",
+      "NEAR RRR &amp; NH167K",
+      "412-AC FOOD PROCESSING UNIT 5 MIN",
+      "DTCP APPROVED"
+    ],
+    "specs": [
+      {
+        "k": "Location",
+        "v": "Kotra X Roads &amp; Kalwakurthy"
+      },
+      {
+        "k": "Product",
+        "v": "Residential open plots"
+      },
+      {
+        "k": "Blocks",
+        "v": "A / B / C"
+      },
+      {
+        "k": "Corridors",
+        "v": "RRR &middot; NH167K &middot; NH765/167"
+      },
+      {
+        "k": "Nearby",
+        "v": "412-acre food processing unit (5 min)"
+      },
+      {
+        "k": "Internal roads",
+        "v": "33' CC roads"
+      },
+      {
+        "k": "Approval",
+        "v": "D.T.L.P Nos. 62, 65, 68 /2022 /DTCPO/NGKL"
+      },
+      {
+        "k": "Entrance",
+        "v": "Grand entrance arch"
+      },
+      {
+        "k": "Status",
+        "v": "Developed &middot; open plots available"
+      }
+    ],
+    "card": "img-3-3.jpeg",
+    "plan": {
+      "src": "img-2-2.jpeg",
+      "label": "Master layout plan &mdash; blocks A/B/C"
+    },
+    "gallery": [
+      {
+        "src": "img-3-3.jpeg",
+        "cap": "Entrance concept render"
+      },
+      {
+        "src": "img-2-2.jpeg",
+        "cap": "Master layout plan"
+      },
+      {
+        "src": "img-1-1.jpeg",
+        "cap": "Location plan &amp; highlights"
+      }
+    ],
+    "videos": [
+      {
+        "youtube_id": "jG7fSTTfht4",
+        "label": "Development",
+        "caption": "Capital Smart City &mdash; development update",
+        "category": "Development"
+      },
+      {
+        "youtube_id": "WOHV-SDh1vc",
+        "label": "After Development",
+        "caption": "Capital Smart City &mdash; after development",
+        "category": "After Development"
+      }
+    ],
+    "final_lp_approved": true,
+    "brochure": true,
+    "coords": {
+      "lat": 16.695277,
+      "lng": 78.520113
+    }
+  },
+  {
+    "slug": "high-rich-county",
+    "name": "High Rich County",
+    "tagline": "Opportunity to Invest in a Promising Future",
+    "location": "JP Nagar Junction",
+    "summary": "Open residential plots at a growing junction on the Hyderabad–Srisailam corridor, close to NH-167 and NH-167K.",
+    "about": "High Rich County offers open residential plots in three approved parts (A, B and C) at JP Nagar Junction, a growing crossing on the Hyderabad&ndash;Srisailam corridor close to NH-167 and NH-167K. The gated layout is developed with 33' CC roads, designed parks, underground drainage and a tap connection to every plot.",
+    "amenities": [
+      "33' CC Roads",
+      "Sports &amp; Play Areas",
+      "Underground Drainage &amp; Septic Tank",
+      "Every-Plot Tap Connection",
+      "Well-Designed Parks/Gardens",
+      "Gated Compound Wall",
+      "Electrical Lines with Transformer",
+      "Underground Electricity (Premium)"
+    ],
+    "rera": "Part A/B/C L.P Nos. 10/2024, 13/2024, 15/2024 DTCPO/NGKL &middot; TS RERA P01600009169 / P01600009152 / P01600009158",
+    "lp_badge": "LP 10&middot;13&middot;15/2024",
+    "card_alt": "High Rich County master layout plan",
+    "card_tagline": "Opportunity to invest in a promising future",
+    "badges": [
+      "L.P 10 &middot; 13 &middot; 15 /2024",
+      "TS RERA P01600009169"
+    ],
+    "facts": [
+      "PARTS A / B / C",
+      "HYD&ndash;SRISAILAM CORRIDOR &middot; NH-167 / NH-167K",
+      "TS RERA P01600009169"
+    ],
+    "ledger": [
+      "PARTS A / B / C",
+      "JP NAGAR JUNCTION",
+      "NEAR NH-167 &amp; NH-167K",
+      "TS RERA FILED &times;3"
+    ],
+    "specs": [
+      {
+        "k": "Location",
+        "v": "JP Nagar Junction"
+      },
+      {
+        "k": "Product",
+        "v": "Residential open plots"
+      },
+      {
+        "k": "Parts",
+        "v": "A / B / C"
+      },
+      {
+        "k": "Corridor",
+        "v": "Hyderabad&ndash;Srisailam &middot; NH-167 / NH-167K"
+      },
+      {
+        "k": "Internal roads",
+        "v": "33' CC roads"
+      },
+      {
+        "k": "Water",
+        "v": "Every-plot tap connection"
+      },
+      {
+        "k": "Approval",
+        "v": "L.P Nos. 10, 13, 15 /2024 DTCPO/NGKL"
+      },
+      {
+        "k": "RERA",
+        "v": "TS RERA P01600009169 / 9152 / 9158"
+      },
+      {
+        "k": "Status",
+        "v": "Developed &middot; open plots available"
+      }
+    ],
+    "card": "card-survey.jpg",
+    "plan": {
+      "src": "img-2-2.jpeg",
+      "label": "Master layout plan &mdash; as filed"
+    },
+    "gallery": [
+      {
+        "src": "img-2-2.jpeg",
+        "cap": "Master layout plan"
+      },
+      {
+        "src": "img-4-4.jpeg",
+        "cap": "Location plan &amp; highlights"
+      }
+    ],
+    "videos": [
+      {
+        "youtube_id": "FUtwClDxKns",
+        "label": "Open Plots Available",
+        "caption": "High Rich County &mdash; open plots available",
+        "category": "After Development"
+      },
+      {
+        "youtube_id": "M7ZpHv8bT7s",
+        "label": "Drone View",
+        "caption": "High Rich County &mdash; drone view",
+        "category": "Drone Footage"
+      }
+    ],
+    "final_lp_approved": true,
+    "brochure": true,
+    "coords": {
+      "lat": 16.6630099,
+      "lng": 78.5387517
+    }
+  },
+  {
+    "slug": "modern-premium-county",
+    "name": "Modern Premium County",
+    "tagline": "Premium Residential Plots at Kondareddypalli Junction",
+    "location": "Kondareddypalli Junction, near J.P. Nagar Junction &amp; Thandra Village",
+    "summary": "Located between Kalwakurthy and Srisailam on a 100' wide road, offering 40' and 33' CC roads throughout the layout.",
+    "about": "Modern Premium County fronts a 100'-wide road between Kalwakurthy and Srisailam at Kondareddypalli Junction, near J.P. Nagar Junction and Thandra Village. Inside the gated compound, 40' and 33' CC roads run past avenue fruit plantation, parks and play areas, with an overhead tank and underground drainage already in place.",
+    "amenities": [
+      "40' &amp; 33' CC Roads",
+      "Sports &amp; Play Areas",
+      "Avenue Fruit Plantation",
+      "Underground Drainage &amp; Septic Tank",
+      "Overhead Water Tank",
+      "Well-Designed Parks/Gardens",
+      "Gated Compound Wall",
+      "Underground Electricity (Premium)"
+    ],
+    "rera": "T.L.P No. 38/2025/H",
+    "lp_badge": "TLP 38/2025/H",
+    "card_alt": "Modern Premium County master layout plan",
+    "card_tagline": "Premium residential plots on the 100' road",
+    "badges": [
+      "T.L.P No. 38/2025/H"
+    ],
+    "facts": [
+      "ON 100' WIDE ROAD",
+      "BETWEEN KALWAKURTHY &amp; SRISAILAM",
+      "40' &amp; 33' CC ROADS"
+    ],
+    "ledger": [
+      "100' ROAD FRONTAGE",
+      "KALWAKURTHY&ndash;SRISAILAM",
+      "40' &amp; 33' CC ROADS",
+      "TLP 38/2025/H"
+    ],
+    "specs": [
+      {
+        "k": "Location",
+        "v": "Kondareddypalli Junction"
+      },
+      {
+        "k": "Product",
+        "v": "Residential open plots"
+      },
+      {
+        "k": "Frontage",
+        "v": "100' wide road"
+      },
+      {
+        "k": "Between",
+        "v": "Kalwakurthy &amp; Srisailam"
+      },
+      {
+        "k": "Near",
+        "v": "J.P. Nagar Junction &middot; Thandra Village"
+      },
+      {
+        "k": "Internal roads",
+        "v": "40' &amp; 33' CC roads"
+      },
+      {
+        "k": "Approval",
+        "v": "T.L.P No. 38/2025/H"
+      },
+      {
+        "k": "Plantation",
+        "v": "Avenue fruit plantation"
+      },
+      {
+        "k": "Status",
+        "v": "Developed &middot; open plots available"
+      }
+    ],
+    "card": "card-survey.jpg",
+    "plan": {
+      "src": "img-1-1.jpeg",
+      "label": "Master layout plan &mdash; Thandra Village"
+    },
+    "gallery": [
+      {
+        "src": "img-1-1.jpeg",
+        "cap": "Master layout plan"
+      }
+    ],
+    "final_lp_approved": true,
+    "brochure": true,
+    "coords": {
+      "lat": 16.6647175,
+      "lng": 78.5556749
+    }
+  },
+  {
+    "slug": "prakruthi-hills",
+    "name": "Prakruthi Hills",
+    "tagline": "Ready to Build Lifestyle Plots",
+    "location": "Srisailam X Road, Kalwakurthy",
+    "summary": "Open residential plots in Kondareddipalle, Vangoor Mandal, with 40' and 33' CC roads, fruit and avenue plantation, and a gated compound wall.",
+    "about": "Prakruthi Hills is a gated layout of open residential plots at Srisailam X Road, Kalwakurthy &mdash; surveyed in Kondareddipalle, Vangoor Mandal, Nagarkurnool District. The community is developed with 40' and 33' CC roads, fruit and avenue plantation, designed parks and an overhead water tank. The layout is now fully booked.",
+    "sold_out": true,
+    "cta_note": "Prakruthi Hills is fully booked &mdash; every plot in the layout has been sold. Resale opportunities do come up from time to time through our lifetime maintenance &amp; resale service, so talk to our team to register interest or ask about current resale listings.",
+    "amenities": [
+      "40' &amp; 33' CC Roads",
+      "Sports &amp; Play Areas",
+      "Fruit &amp; Avenue Plantation",
+      "Underground Drainage &amp; Septic Tank",
+      "Overhead Water Tank",
+      "Well-Designed Parks/Gardens",
+      "Gated Compound Wall",
+      "Underground Electricity (Premium)"
+    ],
+    "rera": "T.L.P No. 72/2023/H &middot; TS RERA P01600008503",
+    "lp_badge": "TLP 72/2023/H",
+    "card_alt": "Prakruthi Hills master layout plan",
+    "card_tagline": "Ready to build lifestyle plots",
+    "badges": [
+      "T.L.P No. 72/2023/H",
+      "TS RERA P01600008503"
+    ],
+    "facts": [
+      "KONDAREDDIPALLE, VANGOOR MANDAL",
+      "FRUIT &amp; AVENUE PLANTATION",
+      "TS RERA P01600008503"
+    ],
+    "ledger": [
+      "SY. 65 &amp; 82 PART",
+      "VANGOOR MANDAL",
+      "40' &amp; 33' CC ROADS",
+      "TS RERA P01600008503"
+    ],
+    "specs": [
+      {
+        "k": "Location",
+        "v": "Srisailam X Road, Kalwakurthy"
+      },
+      {
+        "k": "Product",
+        "v": "Residential open plots"
+      },
+      {
+        "k": "Survey",
+        "v": "Kondareddipalle, Vangoor Mandal"
+      },
+      {
+        "k": "District",
+        "v": "Nagarkurnool"
+      },
+      {
+        "k": "Internal roads",
+        "v": "40' &amp; 33' CC roads"
+      },
+      {
+        "k": "Plantation",
+        "v": "Fruit &amp; avenue plantation"
+      },
+      {
+        "k": "Approval",
+        "v": "T.L.P No. 72/2023/H"
+      },
+      {
+        "k": "RERA",
+        "v": "TS RERA P01600008503"
+      },
+      {
+        "k": "Status",
+        "v": "Developed &middot; fully booked (resale enquiries welcome)"
+      }
+    ],
+    "card": "img-2-2.jpeg",
+    "plan": {
+      "src": "img-2-2.jpeg",
+      "label": "Master layout plan &mdash; Sy. 65 &amp; 82 part"
+    },
+    "gallery": [
+      {
+        "src": "img-2-2.jpeg",
+        "cap": "Master layout plan"
+      }
+    ],
+    "videos": [
+      {
+        "youtube_id": "Whq-9_Se12w",
+        "label": "At Groundbreaking",
+        "caption": "Prakruthi Hills &mdash; aerial footage at groundbreaking",
+        "category": "Before Development"
+      },
+      {
+        "youtube_id": "KyTda767Jd0",
+        "label": "After Completion",
+        "caption": "Prakruthi Hills &mdash; aerial footage of the completed, fully developed layout",
+        "category": "After Development"
+      },
+      {
+        "youtube_id": "HKwwtSxi1do",
+        "label": "Latest Update",
+        "caption": "Prakruthi Hills &mdash; video walkthrough",
+        "category": "Development"
+      }
+    ],
+    "hero_video": {
+      "youtube_id": "6mODX2NgxQA",
+      "start": 5,
+      "end": 64
+    },
+    "final_lp_approved": true,
+    "brochure": true,
+    "coords": {
+      "lat": 16.6569182,
+      "lng": 78.5763131
+    }
+  },
+  {
+    "slug": "urban-elite",
+    "name": "Urban Elite",
+    "tagline": "Visionary Living, Vital Futures",
+    "location": "Kadthal, near Bharat Future City",
+    "summary": "Positioned at the intersection of the upcoming Metro extension and the Regional Ring Road, minutes from Future City, AI City, and Mucherla Pharma City. Proudly trusted by a growing NRI community.",
+    "about": "Urban Elite stands at Kadthal, where the proposed Metro extension meets the Regional Ring Road &mdash; minutes from Bharat Future City, AI City and Mucherla Pharma City. It is SBM's flagship layout for investors at home and abroad: bank loans are available, plots are fully Vaasthu compliant, and the SBM app lets a growing NRI community track their investment from anywhere in the world.",
+    "amenities": [
+      "Fully Vaasthu Compliant",
+      "Entry Arch",
+      "Clear Plot Signage",
+      "Water Harvesting Pit",
+      "Overhead Water Tank",
+      "Underground Electrical Cabling",
+      "33' CC Roads",
+      "24/7 Security",
+      "Park &amp; Play Areas",
+      "Underground Electricity (Premium)"
+    ],
+    "rera": "TLP No. 234/2023/H &middot; TG RERA P02400008611",
+    "lp_badge": "TLP 234/2023/H",
+    "card_alt": "Urban Elite master layout plan",
+    "card_tagline": "Visionary living, vital futures",
+    "badges": [
+      "TLP No. 234/2023/H",
+      "TG RERA P02400008611"
+    ],
+    "facts": [
+      "RRR &times; METRO EXTENSION",
+      "BANK LOAN AVAILABLE &middot; NRI FOCUS",
+      "TG RERA P02400008611"
+    ],
+    "ledger": [
+      "RRR &times; METRO EXTENSION",
+      "NEAR BHARAT FUTURE CITY",
+      "BANK LOAN AVAILABLE",
+      "NRI SERVICES",
+      "TG RERA P02400008611"
+    ],
+    "specs": [
+      {
+        "k": "Location",
+        "v": "Kadthal, near Bharat Future City"
+      },
+      {
+        "k": "Product",
+        "v": "Residential open plots"
+      },
+      {
+        "k": "Corridor",
+        "v": "Regional Ring Road &times; Metro extension"
+      },
+      {
+        "k": "Nearby",
+        "v": "Future City &middot; AI City &middot; Pharma City"
+      },
+      {
+        "k": "Finance",
+        "v": "Bank loan available"
+      },
+      {
+        "k": "Investors",
+        "v": "NRI services &middot; SBM app tracking"
+      },
+      {
+        "k": "Approval",
+        "v": "TLP No. 234/2023/H"
+      },
+      {
+        "k": "RERA",
+        "v": "TG RERA P02400008611"
+      },
+      {
+        "k": "Status",
+        "v": "Developed &middot; open plots available"
+      }
+    ],
+    "card": "img-6-7.jpeg",
+    "card_anchor": "top",
+    "plan": {
+      "src": "img-6-7.jpeg",
+      "label": "Master out plan &mdash; as filed"
+    },
+    "gallery": [
+      {
+        "src": "img-4-4.jpeg",
+        "cap": "Bharat Future City &mdash; concept aerial"
+      },
+      {
+        "src": "img-5-6.jpeg",
+        "cap": "Growth corridor &mdash; concept render"
+      },
+      {
+        "src": "img-6-7.jpeg",
+        "cap": "Master out plan"
+      },
+      {
+        "src": "img-8-9.jpeg",
+        "cap": "Location map &mdash; RRR &amp; Future City"
+      },
+      {
+        "src": "img-10-13.jpeg",
+        "cap": "Srisailam corridor landmark"
+      },
+      {
+        "src": "img-10-11.jpeg",
+        "cap": "Regional landmark"
+      },
+      {
+        "src": "img-10-12.jpeg",
+        "cap": "Regional landmark"
+      },
+      {
+        "src": "img-10-14.jpeg",
+        "cap": "Srisailam valley"
+      }
+    ],
+    "videos": [
+      {
+        "youtube_id": "LkFDAu8nHgI",
+        "label": "Latest Walkthrough",
+        "caption": "Urban Elite &mdash; aerial drone walkthrough",
+        "category": "After Development"
+      },
+      {
+        "youtube_id": "Iic7DimBA7Q",
+        "label": "Additional Footage",
+        "caption": "Urban Elite &mdash; aerial drone footage",
+        "category": "Drone Footage"
+      },
+      {
+        "youtube_id": "Uryxa74Jq7U",
+        "label": "Site Launch",
+        "caption": "Urban Elite &mdash; site launch",
+        "category": "Launch Day"
+      }
+    ],
+    "hero_video": {
+      "youtube_id": "Iic7DimBA7Q",
+      "start": 28,
+      "end": 100
+    },
+    "final_lp_approved": true,
+    "brochure": true
+  },
+  {
+    "slug": "modern-premium-county-phase-i-phase-ii",
+    "name": "Modern Premium County Phase I & Phase II",
+    "tagline": "The golden rule of great living!",
+    "location": "Thandra Village, Kalwakurthy Mandal, Nagarkurnool District",
+    "about": "Modern Premium County by SBM Infra India Pvt. Ltd. is a DTCP-approved gated residential villa plot development of 20.88 acres across two phases at Thandra Village, Kalwakurthy Mandal, Nagarkurnool District. The layout holds 299 plots in all — 128 in Phase I and 171 in Phase II — laid out along 33', 40' and proposed 40' wide internal CC roads, with roughly 10% of each phase reserved as open space for parks. It sits on the Thandra Village 4-line wide road just off the existing 100' wide road between Hyderabad and Srisailam, near the Regional Ring Road, about 45 minutes from RGIA and a 30-minute drive from the 30,000-acre Bharat Future City.",
+    "amenities": [
+      "Ample Green Spaces",
+      "Children's Play Area",
+      "24 Hour Power Supply",
+      "24x7 Security",
+      "Walking / Jogging Track",
+      "Overhead Water Tank",
+      "Under Ground Drainage System",
+      "24x7 Water Supply",
+      "30, 40 Feet CC Roads",
+      "Footpath Tiles",
+      "Entrance Gate",
+      "Street Lights"
+    ],
+    "rera": "Phase I: T.L.P No. 38/2025/H · Phase I RERA No. P01600010695 · Phase II: T.L.P No. 21/2026/H",
+    "lp_badge": "TLP 38/2025/H · 21/2026/H",
+    "facts": [
+      "20.88 AC · 299 PLOTS",
+      "NEAR RRR · 45 MIN FROM RGIA",
+      "DTCP APPROVED · TG RERA"
+    ],
+    "ledger": [
+      "20.88 ACRES",
+      "299 PLOTS",
+      "33'–40' CC ROADS",
+      "NEAR RRR"
+    ],
+    "specs": [
+      {
+        "k": "Extent",
+        "v": "20.88 acres · 299 plots"
+      },
+      {
+        "k": "Phase I",
+        "v": "Ac. 8.520 cents · 128 plots"
+      },
+      {
+        "k": "Phase II",
+        "v": "Ac. 12.0396 cents · 171 plots"
+      },
+      {
+        "k": "Roads",
+        "v": "33' & 40' wide CC roads"
+      },
+      {
+        "k": "Approval",
+        "v": "Phase I T.L.P No. 38/2025/H · Phase II T.L.P No. 21/2026/H"
+      },
+      {
+        "k": "RERA",
+        "v": "P01600010695 (Phase I)"
+      }
+    ],
+    "card": "brochure-p1-card.jpg",
+    "plan": {
+      "src": "brochure-p3-plan.jpg",
+      "label": "Master layout plan &mdash; as filed"
+    },
+    "gallery": [
+      {
+        "src": "brochure-p3-plan.jpg",
+        "cap": "Master layout plan"
+      }
+    ],
+    "videos": [
+      {
+        "youtube_id": "AFNW-azO2vA",
+        "label": "Development",
+        "caption": "Modern Premium County Phase I & Phase II &mdash; development video",
+        "category": "Development"
+      }
+    ],
+    "trash": {
+      "videos": [
+        {
+          "youtube_id": "dQw4w9WgXcQ",
+          "label": "CLAUDE TEST - safe to ignore",
+          "caption": "Modern Premium County Phase I & Phase II &mdash; claude test - safe to ignore",
+          "category": "Drone Footage",
+          "deleted_at": "2026-09-18T07:08:33.859Z"
+        }
+      ]
+    },
+    "brochure": false,
+    "coords": {
+      "lat": 16.669031,
+      "lng": 78.558718
+    }
+  }
+]

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin | SBM Infra Projects</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Archivo:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin">
+  <header class="admin-topbar">
+    <div class="admin-topbar-inner">
+      <span class="admin-brand">
+        <span class="admin-brand-mark">SBM</span>
+        <span class="admin-brand-sub">Infra Projects</span>
+      </span>
+      <button class="admin-logout-btn" id="logout-btn" type="button">Log out</button>
+    </div>
+  </header>
+
+  <div class="admin-shell">
+
+    <details class="admin-create-panel" id="create-panel">
+      <summary>+ New Project</summary>
+
+      <form id="create-project-form" class="admin-create-form">
+
+        <section class="form-section">
+          <div class="section-head">
+            <h3>Start from a brochure</h3>
+            <p>Optional. Reads the PDF and fills in the fields below, so you review instead of retype.</p>
+          </div>
+          <div class="admin-extract-block">
+            <label for="cp-brochure-file">Brochure PDF</label>
+            <input type="file" id="cp-brochure-file" accept="application/pdf">
+            <button type="button" class="admin-btn admin-btn-secondary" id="extract-brochure-btn">Read brochure</button>
+            <p class="admin-status" id="extract-status"></p>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <div class="section-head">
+            <h3>Project details</h3>
+            <p>The headline facts shown across the top of the project page.</p>
+          </div>
+
+          <div class="field-grid">
+            <div class="field-row">
+              <label for="cp-name">Project name</label>
+              <input type="text" id="cp-name" required>
+            </div>
+            <div class="field-row">
+              <label for="cp-slug">Web address <span class="opt">Optional</span></label>
+              <input type="text" id="cp-slug" placeholder="auto-generated-from-name">
+              <small class="field-hint">Leave blank to build it from the name.</small>
+            </div>
+            <div class="field-row">
+              <label for="cp-tagline">Tagline</label>
+              <input type="text" id="cp-tagline" required>
+            </div>
+            <div class="field-row">
+              <label for="cp-location">Location</label>
+              <input type="text" id="cp-location" required>
+            </div>
+            <div class="field-row">
+              <label for="cp-rera">Approval text</label>
+              <input type="text" id="cp-rera" required>
+              <small class="field-hint">Exactly as filed, e.g. "LP No. 379/2021/H".</small>
+            </div>
+            <div class="field-row">
+              <label for="cp-lp-badge">Approval badge</label>
+              <input type="text" id="cp-lp-badge" required>
+              <small class="field-hint">The short version for cards, e.g. "LP 379/2021/H".</small>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <label for="cp-about">About</label>
+            <textarea id="cp-about" rows="4" required></textarea>
+            <small class="field-hint">A short paragraph describing the layout.</small>
+          </div>
+
+          <div class="field-row field-row-checkbox">
+            <label><input type="checkbox" id="cp-sold-out"> Sold out / fully booked</label>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <div class="section-head">
+            <h3>Page content</h3>
+            <p>The repeating lists that fill out the project page and its listing card.</p>
+          </div>
+
+          <div class="field-row">
+            <label>Amenities</label>
+            <div class="dyn-list" id="cp-amenities"></div>
+            <button type="button" class="dyn-add-btn" data-target="cp-amenities">+ Add amenity</button>
+          </div>
+
+          <div class="field-row">
+            <label>Facts table</label>
+            <small class="field-hint">Label and value pairs, e.g. "Extent" / "26.4 acres".</small>
+            <div class="dyn-list dyn-list-kv" id="cp-specs"></div>
+            <button type="button" class="dyn-add-btn" data-target="cp-specs" data-kv="true">+ Add row</button>
+          </div>
+
+          <div class="field-row">
+            <label>Hero highlights</label>
+            <small class="field-hint">Short all-caps tags across the top of the page, e.g. "291 PLOTS".</small>
+            <div class="dyn-list" id="cp-ledger"></div>
+            <button type="button" class="dyn-add-btn" data-target="cp-ledger">+ Add highlight</button>
+          </div>
+
+          <div class="field-row">
+            <label>Project card lines</label>
+            <small class="field-hint">Two or three short facts shown on the listing card.</small>
+            <div class="dyn-list" id="cp-facts"></div>
+            <button type="button" class="dyn-add-btn" data-target="cp-facts">+ Add line</button>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <div class="section-head">
+            <h3>Images</h3>
+            <p>Pick a brochure page for each, or upload your own. One page can be used more than once.</p>
+          </div>
+
+          <div class="admin-page-picker" id="page-picker" hidden>
+            <p class="page-picker-hint">Pages found in the brochure</p>
+            <div class="page-picker-strip" id="page-picker-strip"></div>
+          </div>
+
+          <div class="image-picker">
+            <div class="image-preview" id="cp-logo-preview"><span>Nothing chosen</span></div>
+            <div class="image-picker-controls">
+              <label for="cp-logo-page">Project logo</label>
+              <small class="field-hint">Shown at the top of the project page.</small>
+              <select class="page-select" id="cp-logo-page" disabled>
+                <option value="">Upload a file instead</option>
+              </select>
+              <input type="file" id="cp-file-logo" accept="image/*">
+              <p class="admin-status" id="cp-logo-source"></p>
+            </div>
+          </div>
+
+          <div class="image-picker">
+            <div class="image-preview" id="cp-card-preview"><span>Nothing chosen</span></div>
+            <div class="image-picker-controls">
+              <label for="cp-card-page">Card / hero image</label>
+              <small class="field-hint">Cropped to 16:9 for the listing card.</small>
+              <select class="page-select" id="cp-card-page" disabled>
+                <option value="">Upload a file instead</option>
+              </select>
+              <input type="file" id="cp-file-card" accept="image/*">
+              <label class="sub-label" for="cp-card-anchor">Crop from</label>
+              <select id="cp-card-anchor">
+                <option value="center">Center (default)</option>
+                <option value="top">Top</option>
+              </select>
+              <p class="admin-status" id="cp-card-source"></p>
+            </div>
+          </div>
+
+          <div class="image-picker">
+            <div class="image-preview" id="cp-plan-preview"><span>Nothing chosen</span></div>
+            <div class="image-picker-controls">
+              <label for="cp-plan-page">Master layout plan</label>
+              <small class="field-hint">Shown full-width in the "Walk the plan" section.</small>
+              <select class="page-select" id="cp-plan-page" disabled>
+                <option value="">Upload a file instead</option>
+              </select>
+              <input type="file" id="cp-file-plan" accept="image/*">
+              <p class="admin-status" id="cp-plan-source"></p>
+            </div>
+          </div>
+        </section>
+
+        <button type="submit" class="admin-btn" id="cp-submit">Create project</button>
+      </form>
+      <p class="admin-status" id="create-status"></p>
+      <div id="create-followup" hidden></div>
+    </details>
+
+    <h2 class="admin-section-title">Project Videos</h2>
+    <div id="projects-list">Loading…</div>
+  </div>
+
+  <script type="module">
+    import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.3.289/pdf.min.mjs';
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/6.3.289/pdf.worker.min.mjs';
+    window.pdfjsLib = pdfjsLib;
+  </script>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

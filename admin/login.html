@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin Login | SBM Infra Projects</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Archivo:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin admin-login-page">
+  <div class="login-card">
+    <span class="admin-brand login-brand">
+      <span class="admin-brand-mark">SBM</span>
+      <span class="admin-brand-sub">Infra Projects</span>
+    </span>
+    <h1>Admin access</h1>
+    <form id="login-form">
+      <input class="admin-field" type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" required>
+      <button class="admin-btn" type="submit">Log in</button>
+      <p class="admin-error" id="login-error"></p>
+    </form>
+
+    <p class="login-forgot"><a href="#" id="forgot-link">Forgot password?</a></p>
+    <div id="forgot-block" hidden>
+      <p class="login-forgot-hint">We'll email a one-time login link to the configured recovery inbox.</p>
+      <button class="admin-btn" type="button" id="forgot-submit">Send login link</button>
+      <p class="admin-status" id="forgot-status"></p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const errorEl = document.getElementById('login-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorEl.textContent = '';
+      const password = document.getElementById('password').value;
+      const submitBtn = form.querySelector('button');
+      submitBtn.disabled = true;
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ password }),
+        });
+        if (res.ok) {
+          window.location.href = './index.html';
+          return;
+        }
+        const data = await res.json().catch(() => ({}));
+        errorEl.textContent = data.error || 'Login failed.';
+      } catch {
+        errorEl.textContent = 'Network error — try again.';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    const forgotLink = document.getElementById('forgot-link');
+    const forgotBlock = document.getElementById('forgot-block');
+    const forgotStatus = document.getElementById('forgot-status');
+    const forgotSubmit = document.getElementById('forgot-submit');
+
+    forgotLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      forgotBlock.hidden = !forgotBlock.hidden;
+    });
+
+    forgotSubmit.addEventListener('click', async () => {
+      forgotSubmit.disabled = true;
+      forgotStatus.textContent = 'Sending…';
+      forgotStatus.className = 'admin-status';
+      try {
+        const res = await fetch('/api/admin/forgot-password', { method: 'POST' });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok) {
+          forgotStatus.textContent = 'Login link sent — check the recovery inbox.';
+          forgotStatus.className = 'admin-status ok';
+        } else {
+          forgotStatus.textContent = data.error || 'Could not send the login link.';
+          forgotStatus.className = 'admin-status err';
+        }
+      } catch {
+        forgotStatus.textContent = 'Network error — try again.';
+        forgotStatus.className = 'admin-status err';
+      } finally {
+        forgotSubmit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
