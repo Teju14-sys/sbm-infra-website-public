@@ -7,6 +7,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 
+BASE_URL = "https://sbm-infra-website.vercel.app"
+
 # Fixed display order. Mirrored in api/_lib/render-project.js.
 VIDEO_CATEGORY_ORDER = [
     "Before Development",
@@ -263,6 +265,141 @@ def number_to_word(n: int) -> str:
     return NUMBER_WORDS[n] if 0 <= n < len(NUMBER_WORDS) else str(n)
 
 
+def clean_entities(s: str) -> str:
+    """Convert HTML entities to plain Unicode for schema text."""
+    return (
+        s.replace("&amp;", "&")
+        .replace("&middot;", "·")
+        .replace("&ndash;", "–")
+        .replace("&mdash;", "—")
+        .replace("&times;", "×")
+        .replace("&rsquo;", "\u2019")
+        .replace("&ldquo;", "\u201c")
+        .replace("&rdquo;", "\u201d")
+        .replace("&nbsp;", " ")
+        .replace("&ensp;", " ")
+        .replace("&sup2;", "²")
+        .replace("&deg;", "°")
+    )
+
+
+def build_breadcrumb_schema(project: dict) -> str:
+    name = clean_entities(project["name"])
+    slug = project["slug"]
+    return f"""<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "Home", "item": "{BASE_URL}/"}},
+    {{"@type": "ListItem", "position": 2, "name": "Projects", "item": "{BASE_URL}/projects.html"}},
+    {{"@type": "ListItem", "position": 3, "name": "{name}", "item": "{BASE_URL}/projects/{slug}.html"}}
+  ]
+}}
+</script>"""
+
+
+def build_project_schema(project: dict) -> str:
+    name = clean_entities(project["name"])
+    tagline = clean_entities(project["tagline"])
+    location = clean_entities(project["location"])
+    slug = project["slug"]
+    about = clean_entities(project["about"])
+    rera = clean_entities(project.get("rera", ""))
+    lp_badge = clean_entities(project.get("lp_badge", ""))
+
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "ResidentialProject",
+        "name": name,
+        "url": f"{BASE_URL}/projects/{slug}.html",
+        "description": about,
+        "image": f"{BASE_URL}/assets/images/derived/{slug}/card.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": location,
+            "addressRegion": "Telangana",
+            "addressCountry": "IN",
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "SBM Infra India Pvt. Ltd.",
+            "url": f"{BASE_URL}/",
+        },
+    }
+
+    if rera:
+        obj["identifier"] = rera
+    if lp_badge:
+        obj["additionalProperty"] = {
+            "@type": "PropertyValue",
+            "name": "Layout Permission",
+            "value": lp_badge,
+        }
+
+    c = project.get("coords")
+    if c:
+        obj["geo"] = {
+            "@type": "GeoCoordinates",
+            "latitude": c["lat"],
+            "longitude": c["lng"],
+        }
+
+    amenities = project.get("amenities", [])
+    if amenities:
+        obj["amenityFeature"] = [
+            {"@type": "LocationFeatureSpecification", "name": clean_entities(a)}
+            for a in amenities
+        ]
+
+    if project.get("sold_out"):
+        obj["offers"] = {
+            "@type": "Offer",
+            "availability": "https://schema.org/OutOfStock",
+            "priceCurrency": "INR",
+            "seller": {"@type": "Organization", "name": "SBM Infra India Pvt. Ltd."},
+        }
+    else:
+        obj["offers"] = {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "INR",
+            "seller": {"@type": "Organization", "name": "SBM Infra India Pvt. Ltd."},
+        }
+
+    return f"""<script type="application/ld+json">
+{json.dumps(obj, indent=2, ensure_ascii=False)}
+</script>"""
+
+
+def build_video_schema(project: dict) -> str:
+    videos = project.get("videos", [])
+    if not videos:
+        return ""
+
+    objects = []
+    for v in videos:
+        yt = v["youtube_id"]
+        objects.append({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": clean_entities(v.get("label", "")),
+            "description": clean_entities(v.get("caption", "")),
+            "thumbnailUrl": f"https://img.youtube.com/vi/{yt}/hqdefault.jpg",
+            "contentUrl": f"https://www.youtube.com/watch?v={yt}",
+            "embedUrl": f"https://www.youtube.com/embed/{yt}",
+            "uploadDate": "2024-01-01",
+        })
+
+    scripts = []
+    for obj in objects:
+        scripts.append(f"""<script type="application/ld+json">
+{json.dumps(obj, indent=2, ensure_ascii=False)}
+</script>""")
+
+    return "\n".join(scripts)
+
+
 def render(template: str, projects: list[dict], i: int) -> str:
     project = projects[i]
     prev_p = projects[(i - 1) % len(projects)]
@@ -294,6 +431,9 @@ def render(template: str, projects: list[dict], i: int) -> str:
         "prev_name": prev_p["name"],
         "next_slug": next_p["slug"],
         "next_name": next_p["name"],
+        "breadcrumb_schema": build_breadcrumb_schema(project),
+        "project_schema": build_project_schema(project),
+        "video_schema": build_video_schema(project),
     }
     out = template
     for key, value in fills.items():

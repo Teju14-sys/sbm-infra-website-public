@@ -250,6 +250,134 @@ export function numberToWord(n) {
   return n >= 0 && n < NUMBER_WORDS.length ? NUMBER_WORDS[n] : String(n);
 }
 
+const BASE_URL = 'https://sbm-infra-website.vercel.app';
+
+function cleanEntities(s) {
+  return s
+    .replace(/&amp;/g, '&')
+    .replace(/&middot;/g, '\u00b7')
+    .replace(/&ndash;/g, '\u2013')
+    .replace(/&mdash;/g, '\u2014')
+    .replace(/&times;/g, '\u00d7')
+    .replace(/&rsquo;/g, '\u2019')
+    .replace(/&ldquo;/g, '\u201c')
+    .replace(/&rdquo;/g, '\u201d')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&ensp;/g, ' ')
+    .replace(/&sup2;/g, '\u00b2')
+    .replace(/&deg;/g, '\u00b0');
+}
+
+function buildBreadcrumbSchema(project) {
+  const name = cleanEntities(project.name);
+  const slug = project.slug;
+  return `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "${BASE_URL}/"},
+    {"@type": "ListItem", "position": 2, "name": "Projects", "item": "${BASE_URL}/projects.html"},
+    {"@type": "ListItem", "position": 3, "name": "${name}", "item": "${BASE_URL}/projects/${slug}.html"}
+  ]
+}
+</script>`;
+}
+
+function buildProjectSchema(project) {
+  const name = cleanEntities(project.name);
+  const tagline = cleanEntities(project.tagline);
+  const location = cleanEntities(project.location);
+  const slug = project.slug;
+  const about = cleanEntities(project.about);
+  const rera = cleanEntities(project.rera || '');
+  const lpBadge = cleanEntities(project.lp_badge || '');
+
+  const obj = {
+    '@context': 'https://schema.org',
+    '@type': 'ResidentialProject',
+    name,
+    url: `${BASE_URL}/projects/${slug}.html`,
+    description: about,
+    image: `${BASE_URL}/assets/images/derived/${slug}/card.jpg`,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: location,
+      addressRegion: 'Telangana',
+      addressCountry: 'IN',
+    },
+    provider: {
+      '@type': 'Organization',
+      name: 'SBM Infra India Pvt. Ltd.',
+      url: `${BASE_URL}/`,
+    },
+  };
+
+  if (rera) obj.identifier = rera;
+  if (lpBadge) {
+    obj.additionalProperty = {
+      '@type': 'PropertyValue',
+      name: 'Layout Permission',
+      value: lpBadge,
+    };
+  }
+
+  const c = project.coords;
+  if (c) {
+    obj.geo = {
+      '@type': 'GeoCoordinates',
+      latitude: c.lat,
+      longitude: c.lng,
+    };
+  }
+
+  const amenities = project.amenities || [];
+  if (amenities.length) {
+    obj.amenityFeature = amenities.map((a) => ({
+      '@type': 'LocationFeatureSpecification',
+      name: cleanEntities(a),
+    }));
+  }
+
+  const availability = project.sold_out
+    ? 'https://schema.org/OutOfStock'
+    : 'https://schema.org/InStock';
+  obj.offers = {
+    '@type': 'Offer',
+    availability,
+    priceCurrency: 'INR',
+    seller: { '@type': 'Organization', name: 'SBM Infra India Pvt. Ltd.' },
+  };
+
+  return `<script type="application/ld+json">
+${JSON.stringify(obj, null, 2)}
+</script>`;
+}
+
+function buildVideoSchema(project) {
+  const videos = project.videos || [];
+  if (!videos.length) return '';
+
+  const scripts = videos.map((v) => {
+    const yt = v.youtube_id;
+    const obj = {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: cleanEntities(v.label || ''),
+      description: cleanEntities(v.caption || ''),
+      thumbnailUrl: `https://img.youtube.com/vi/${yt}/hqdefault.jpg`,
+      contentUrl: `https://www.youtube.com/watch?v=${yt}`,
+      embedUrl: `https://www.youtube.com/embed/${yt}`,
+      uploadDate: '2024-01-01',
+    };
+    return `<script type="application/ld+json">
+${JSON.stringify(obj, null, 2)}
+</script>`;
+  });
+
+  return scripts.join('\n');
+}
+
 /** Render project `projects[i]` given the full projects array and template string. */
 export function render(rawTemplate, projects, i) {
   // Python's Path.read_text()/write_text() do universal-newline translation
@@ -288,6 +416,9 @@ export function render(rawTemplate, projects, i) {
     prev_name: prevP.name,
     next_slug: nextP.slug,
     next_name: nextP.name,
+    breadcrumb_schema: buildBreadcrumbSchema(project),
+    project_schema: buildProjectSchema(project),
+    video_schema: buildVideoSchema(project),
   };
 
   let out = template;
