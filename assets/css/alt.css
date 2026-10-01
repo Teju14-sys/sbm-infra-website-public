@@ -665,6 +665,68 @@ a { color: inherit; }
   color: var(--muted);
 }
 
+/* ---------- FAQ ---------- */
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 800px;
+}
+
+.faq-item {
+  background: var(--paper);
+  border: 1px solid var(--bone);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--royal);
+  box-shadow: 0 2px 12px rgba(10, 31, 51, 0.06);
+}
+
+.faq-item summary {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding: 1.1rem 1.5rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--ink);
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--signal);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  content: "\2212";
+  transform: rotate(0deg);
+}
+
+.faq-item summary:hover { color: var(--royal); }
+
+.faq-item p {
+  padding: 0 1.5rem 1.2rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
 /* ---------- App + CTA band ---------- */
 
 .cta-band {

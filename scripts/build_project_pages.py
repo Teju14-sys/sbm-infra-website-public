@@ -254,6 +254,144 @@ def build_cta_note(project: dict) -> str:
     )
 
 
+def build_faq_items(project: dict) -> str:
+    """Generate project-specific FAQ Q&A pairs as visible <details> elements.
+    These match the FAQPage schema so Google sees matching visible content."""
+    name = project["name"]
+    location = project["location"]
+    rera = clean_entities(project.get("rera", ""))
+    lp_badge = clean_entities(project.get("lp_badge", ""))
+    about = clean_entities(project["about"])
+    sold_out = project.get("sold_out", False)
+
+    faqs = [
+        (
+            f"What is {name} and where is it located?",
+            f"{name} is a DTCP-approved residential open-plot layout by SBM Infra Projects, located at {location}. {about}",
+        ),
+        (
+            f"What approvals does {name} have?",
+            f"{name} is DTCP approved with 100% clear title. {'Layout permission: ' + lp_badge + '.' if lp_badge else ''}"
+            + (f" RERA registration: {rera}." if rera else "")
+            + " All reference numbers are shown as filed.",
+        ),
+    ]
+
+    amenities = project.get("amenities", [])
+    if amenities:
+        amenity_text = ", ".join(clean_entities(a) for a in amenities[:6])
+        faqs.append((
+            f"What amenities are included in {name}?",
+            f"{name} includes {amenity_text}, and more. All development is completed before plots are handed over.",
+        ))
+
+    coords = project.get("coords")
+    if coords:
+        faqs.append((
+            f"How do I get directions to {name}?",
+            f"You can get directions to {name} via Google Maps using the coordinates {coords['lat']},{coords['lng']}, or use the Get Directions button on this page.",
+        ))
+
+    if sold_out:
+        faqs.append((
+            f"Is {name} still available?",
+            f"{name} is fully booked. Resale opportunities do come up from time to time through SBM's lifetime maintenance and resale service. Contact the team to register interest or ask about current resale listings.",
+        ))
+    else:
+        faqs.append((
+            f"How do I get pricing for {name}?",
+            f"Pricing for {name} is shared directly by the SBM Infra team on request. Contact the team through the enquiry form or email info@sbminfraprojects.in for current availability and accurate quotes.",
+        ))
+
+    faqs.append((
+        f"Can I arrange a site visit to {name}?",
+        f"Yes. SBM Infra arranges site visits so you can see the roads, parks and compound wall already in place. Use the enquiry form on this page to schedule a visit.",
+    ))
+
+    items = []
+    for q, a in faqs:
+        items.append(
+            f'        <details class="faq-item reveal">\n'
+            f'          <summary>{q}</summary>\n'
+            f'          <p>{a}</p>\n'
+            f'        </details>'
+        )
+    return "\n".join(items)
+
+
+def build_faq_schema(project: dict) -> str:
+    """Generate FAQPage schema matching the visible FAQ items."""
+    name = project["name"]
+    location = project["location"]
+    rera = clean_entities(project.get("rera", ""))
+    lp_badge = clean_entities(project.get("lp_badge", ""))
+    about = clean_entities(project["about"])
+    sold_out = project.get("sold_out", False)
+
+    qa_pairs = [
+        (
+            f"What is {name} and where is it located?",
+            f"{name} is a DTCP-approved residential open-plot layout by SBM Infra Projects, located at {location}. {about}",
+        ),
+        (
+            f"What approvals does {name} have?",
+            f"{name} is DTCP approved with 100% clear title. "
+            + (f"Layout permission: {lp_badge}." if lp_badge else "")
+            + (f" RERA registration: {rera}." if rera else "")
+            + " All reference numbers are shown as filed.",
+        ),
+    ]
+
+    amenities = project.get("amenities", [])
+    if amenities:
+        amenity_text = ", ".join(clean_entities(a) for a in amenities[:6])
+        qa_pairs.append((
+            f"What amenities are included in {name}?",
+            f"{name} includes {amenity_text}, and more. All development is completed before plots are handed over.",
+        ))
+
+    coords = project.get("coords")
+    if coords:
+        qa_pairs.append((
+            f"How do I get directions to {name}?",
+            f"You can get directions to {name} via Google Maps using the coordinates {coords['lat']},{coords['lng']}, or use the Get Directions button on this page.",
+        ))
+
+    if sold_out:
+        qa_pairs.append((
+            f"Is {name} still available?",
+            f"{name} is fully booked. Resale opportunities do come up from time to time through SBM's lifetime maintenance and resale service. Contact the team to register interest or ask about current resale listings.",
+        ))
+    else:
+        qa_pairs.append((
+            f"How do I get pricing for {name}?",
+            f"Pricing for {name} is shared directly by the SBM Infra team on request. Contact the team through the enquiry form or email info@sbminfraprojects.in for current availability and accurate quotes.",
+        ))
+
+    qa_pairs.append((
+        f"Can I arrange a site visit to {name}?",
+        f"Yes. SBM Infra arranges site visits so you can see the roads, parks and compound wall already in place. Use the enquiry form on this page to schedule a visit.",
+    ))
+
+    main_entity = [
+        {
+            "@type": "Question",
+            "name": q,
+            "acceptedAnswer": {"@type": "Answer", "text": a},
+        }
+        for q, a in qa_pairs
+    ]
+
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": main_entity,
+    }
+    return f"""<script type="application/ld+json">
+{json.dumps(obj, indent=2, ensure_ascii=False)}
+</script>"""
+
+
 NUMBER_WORDS = [
     "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
     "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
@@ -407,6 +545,7 @@ def render(template: str, projects: list[dict], i: int) -> str:
     fills = {
         "slug": project["slug"],
         "name": project["name"],
+        "name_upper": project["name"].upper(),
         "tagline": project["tagline"],
         "location": project["location"],
         "about": project["about"],
@@ -434,6 +573,8 @@ def render(template: str, projects: list[dict], i: int) -> str:
         "breadcrumb_schema": build_breadcrumb_schema(project),
         "project_schema": build_project_schema(project),
         "video_schema": build_video_schema(project),
+        "faq_items": build_faq_items(project),
+        "faq_schema": build_faq_schema(project),
     }
     out = template
     for key, value in fills.items():

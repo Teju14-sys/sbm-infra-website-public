@@ -364,7 +364,7 @@ function buildVideoSchema(project) {
       '@context': 'https://schema.org',
       '@type': 'VideoObject',
       name: cleanEntities(v.label || ''),
-      description: cleanEntities(v.caption || ''),
+      description: cleanEntity(v.caption || ''),
       thumbnailUrl: `https://img.youtube.com/vi/${yt}/hqdefault.jpg`,
       contentUrl: `https://www.youtube.com/watch?v=${yt}`,
       embedUrl: `https://www.youtube.com/embed/${yt}`,
@@ -376,6 +376,133 @@ ${JSON.stringify(obj, null, 2)}
   });
 
   return scripts.join('\n');
+}
+
+function buildFaqItems(project) {
+  const name = project.name;
+  const location = project.location;
+  const rera = cleanEntities(project.rera || '');
+  const lpBadge = cleanEntities(project.lp_badge || '');
+  const about = cleanEntities(project.about);
+  const soldOut = project.sold_out || false;
+
+  const faqs = [
+    [
+      `What is ${name} and where is it located?`,
+      `${name} is a DTCP-approved residential open-plot layout by SBM Infra Projects, located at ${location}. ${about}`,
+    ],
+    [
+      `What approvals does ${name} have?`,
+      `${name} is DTCP approved with 100% clear title. ${lpBadge ? 'Layout permission: ' + lpBadge + '.' : ''}${rera ? ' RERA registration: ' + rera + '.' : ''} All reference numbers are shown as filed.`,
+    ],
+  ];
+
+  const amenities = project.amenities || [];
+  if (amenities.length) {
+    const amenityText = amenities.slice(0, 6).map((a) => cleanEntities(a)).join(', ');
+    faqs.push([
+      `What amenities are included in ${name}?`,
+      `${name} includes ${amenityText}, and more. All development is completed before plots are handed over.`,
+    ]);
+  }
+
+  const coords = project.coords;
+  if (coords) {
+    faqs.push([
+      `How do I get directions to ${name}?`,
+      `You can get directions to ${name} via Google Maps using the coordinates ${coords.lat},${coords.lng}, or use the Get Directions button on this page.`,
+    ]);
+  }
+
+  if (soldOut) {
+    faqs.push([
+      `Is ${name} still available?`,
+      `${name} is fully booked. Resale opportunities do come up from time to time through SBM's lifetime maintenance and resale service. Contact the team to register interest or ask about current resale listings.`,
+    ]);
+  } else {
+    faqs.push([
+      `How do I get pricing for ${name}?`,
+      `Pricing for ${name} is shared directly by the SBM Infra team on request. Contact the team through the enquiry form or email info@sbminfraprojects.in for current availability and accurate quotes.`,
+    ]);
+  }
+
+  faqs.push([
+    `Can I arrange a site visit to ${name}?`,
+    `Yes. SBM Infra arranges site visits so you can see the roads, parks and compound wall already in place. Use the enquiry form on this page to schedule a visit.`,
+  ]);
+
+  return faqs.map(([q, a]) =>
+    `        <details class="faq-item reveal">\n          <summary>${q}</summary>\n          <p>${a}</p>\n        </details>`
+  ).join('\n');
+}
+
+function buildFaqSchema(project) {
+  const name = project.name;
+  const location = project.location;
+  const rera = cleanEntities(project.rera || '');
+  const lpBadge = cleanEntities(project.lp_badge || '');
+  const about = cleanEntities(project.about);
+  const soldOut = project.sold_out || false;
+
+  const qaPairs = [
+    [
+      `What is ${name} and where is it located?`,
+      `${name} is a DTCP-approved residential open-plot layout by SBM Infra Projects, located at ${location}. ${about}`,
+    ],
+    [
+      `What approvals does ${name} have?`,
+      `${name} is DTCP approved with 100% clear title. ${lpBadge ? 'Layout permission: ' + lpBadge + '.' : ''}${rera ? ' RERA registration: ' + rera + '.' : ''} All reference numbers are shown as filed.`,
+    ],
+  ];
+
+  const amenities = project.amenities || [];
+  if (amenities.length) {
+    const amenityText = amenities.slice(0, 6).map((a) => cleanEntities(a)).join(', ');
+    qaPairs.push([
+      `What amenities are included in ${name}?`,
+      `${name} includes ${amenityText}, and more. All development is completed before plots are handed over.`,
+    ]);
+  }
+
+  const coords = project.coords;
+  if (coords) {
+    qaPairs.push([
+      `How do I get directions to ${name}?`,
+      `You can get directions to ${name} via Google Maps using the coordinates ${coords.lat},${coords.lng}, or use the Get Directions button on this page.`,
+    ]);
+  }
+
+  if (soldOut) {
+    qaPairs.push([
+      `Is ${name} still available?`,
+      `${name} is fully booked. Resale opportunities do come up from time to time through SBM's lifetime maintenance and resale service. Contact the team to register interest or ask about current resale listings.`,
+    ]);
+  } else {
+    qaPairs.push([
+      `How do I get pricing for ${name}?`,
+      `Pricing for ${name} is shared directly by the SBM Infra team on request. Contact the team through the enquiry form or email info@sbminfraprojects.in for current availability and accurate quotes.`,
+    ]);
+  }
+
+  qaPairs.push([
+    `Can I arrange a site visit to ${name}?`,
+    `Yes. SBM Infra arranges site visits so you can see the roads, parks and compound wall already in place. Use the enquiry form on this page to schedule a visit.`,
+  ]);
+
+  const mainEntity = qaPairs.map(([q, a]) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  }));
+
+  const obj = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity,
+  };
+  return `<script type="application/ld+json">
+${JSON.stringify(obj, null, 2)}
+</script>`;
 }
 
 /** Render project `projects[i]` given the full projects array and template string. */
@@ -392,6 +519,7 @@ export function render(rawTemplate, projects, i) {
   const fills = {
     slug: project.slug,
     name: project.name,
+    name_upper: project.name.toUpperCase(),
     tagline: project.tagline,
     location: project.location,
     about: project.about,
@@ -419,6 +547,8 @@ export function render(rawTemplate, projects, i) {
     breadcrumb_schema: buildBreadcrumbSchema(project),
     project_schema: buildProjectSchema(project),
     video_schema: buildVideoSchema(project),
+    faq_items: buildFaqItems(project),
+    faq_schema: buildFaqSchema(project),
   };
 
   let out = template;

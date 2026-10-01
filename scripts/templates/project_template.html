@@ -30,6 +30,7 @@
 {{breadcrumb_schema}}
 {{project_schema}}
 {{video_schema}}
+{{faq_schema}}
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -133,6 +134,21 @@
     </div>
   </section>
 {{video_section}}{{docs_section}}{{location_section}}
+  <!-- ============ FAQ ============ -->
+  <section class="section section-paper" aria-label="Frequently asked questions">
+    <div class="wrap">
+      <div class="section-head split reveal">
+        <div>
+          <span class="eyebrow">Questions &amp; Answers</span>
+          <h2>Frequently asked questions.</h2>
+        </div>
+        <span class="section-note">ABOUT {{name_upper}}</span>
+      </div>
+      <div class="faq-list stagger">
+{{faq_items}}
+      </div>
+    </div>
+  </section>
   <!-- ============ Enquiry CTA ============ -->
   <section class="cta-band" aria-label="Enquire about {{name}}">
     <div class="wrap">
